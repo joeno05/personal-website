@@ -1,5 +1,6 @@
 html {
   scroll-padding-top: 100px;
+  overflow-x: hidden;
 }
 body {
   background-color: #fff;
@@ -7,6 +8,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .home-nav {
@@ -137,9 +139,10 @@ body {
   align-items: center;
   gap: 40px;
   margin-bottom: 32px;
-  margin-right: 100px;
-  margin-left: 100px;
-  background: #fff /* Very light gray */
+  margin-right: 20px;
+  margin-left: 20px;
+  background: #fff; /* Very light gray */
+  box-sizing: border-box;
 }
 
 .about-text {
@@ -222,6 +225,16 @@ body {
   background: #fff; /* Light yellow */
   border-radius: 12px;
   padding: 32px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#projects-list li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 .projects-list img {
   width: 500px; /* optional: scale image */
@@ -232,7 +245,8 @@ body {
 .img-hover-container {
   position: relative;
   display: inline-block;
-  max-width: 500px;
+  max-width: 400px;
+  width: 400px;
   margin-right: 24px; /* Add space between project images */
   margin-bottom: 24px; /* Optional: space below each image */
 }
@@ -242,10 +256,15 @@ body {
 .img-hover-container img {
   display: block;
   width: 100%;
-  height: 260px;         /* Set a fixed height for all project images */
+  height: 320px;         /* Increased height for larger images */
   border-radius: 12px;
   object-fit: cover;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.img-hover-container a {
+  position: relative;
+  display: block;
+  text-decoration: none;
 }
 
 .hover-text {
@@ -262,21 +281,38 @@ body {
   align-items: center;
   justify-content: center;
   opacity: 0;
-  font-size: 1em;
+  font-size: 0.95em;
   font-family: 'Segoe UI', Arial, sans-serif;
   text-align: center;
-  padding: 24px;
+  padding: 20px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.15);
   transition: opacity 0.3s, transform 0.3s;
   transform: scale(1);
   letter-spacing: 0.5px;
-  pointer-events: none;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .img-hover-container:hover .hover-text {
   opacity: 1;
   transform: scale(1.03);
-  pointer-events: auto;
+}
+.hover-text .project-tags {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+.hover-text .project-tag {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.75em;
+  display: inline-block;
+  font-weight: 500;
 }
 .projects-img,
 .projects-fade {
@@ -332,14 +368,17 @@ body {
   margin: 10px;
   padding: 20px;
   border-radius: 10px;
-  width: 1000px;
+  max-width: 700px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
 .contact-row {
   display: flex;
   align-items: flex-start;
   gap: 32px;
+  justify-content: center;
 }
 
 .contact-img {
@@ -350,13 +389,14 @@ body {
 }
 .contact form {
   background: #202567;
-  padding: 24px;
+  padding: 24px 40px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 600px;
+  width: 500px;
+  box-sizing: border-box;
 }
 .contact label {
   font-weight: bold;
@@ -394,8 +434,8 @@ display: flex;
 flex-direction: column;
 }
 h2{
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 20px;
+  margin-right: 20px;
   margin-top: 56px;
   margin-bottom: 56px;
   text-align: center;
@@ -403,14 +443,14 @@ h2{
 }
 
 h1 {
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 20px;
+  margin-right: 20px;
   margin-top: 56px;
   margin-bottom: 24px;
 }
 
 .header {
-  margin-right: 100px;
+  margin-right: 20px;
   margin-bottom: 32px;
   font-size: 1.1em;
 }
@@ -457,6 +497,8 @@ footer {
 .experience-row,
 #projects-list,
 .header {
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 20px;
+  margin-right: 20px;
+  max-width: calc(100% - 40px);
+  box-sizing: border-box;
 }
