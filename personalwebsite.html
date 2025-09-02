@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang=en>
+<head>
+  <meta charset=utf-8>
+  <title>Joe Norton</title>
+  <link rel="stylesheet" href="personalwebsite.css">
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const elements = document.querySelectorAll(
+    '.experience-desc, .experience-img, .projects-img, .projects-fade, .contact'
+  );
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+      } else {
+        entry.target.classList.remove('fade-in');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+});
+document.addEventListener("DOMContentLoaded", function() {
+  let slideIndex = 0;
+  const slides = document.querySelectorAll('.slide-img');
+  if (slides.length === 0) return;
+  slides.forEach((img, i) => img.classList.toggle('active', i === 0));
+
+  setInterval(() => {
+    slides[slideIndex].classList.remove('active');
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].classList.add('active');
+  }, 4000); // Change image every 4 seconds
+});
+</script>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="home-nav">
+<div class="nav-title"><a href="#home">Joe Norton</a></div>
+<ul class="menu-bar">
+  <li><a href="#home">Home</a></li>
+  <li><a href="#about">About Me</a></li>
+  <li><a href="#experience">Experience</a></li>
+  <li><a href="#projects">Projects</a></li>
+  <li><a href="#awards">Awards</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+<!-- Slideshow Section -->
+ <section class="slideshow" id="home">
+  <img class="slide-img" src="images/dsjunioraward.jpg">
+  <img class="slide-img" src="images/2x2pr.jpeg">
+  <img class="slide-img" src="images/complab.jpeg">
+ </section>
+<!-- Hero Section -->
+<section class="hero">
+  <img src="images/profilepic.jpg" alt="Joe Norton" class="hero-img">
+  <div class="hero-content">
+    <h1>Hi, I'm Joe Norton</h1>
+    <p>Computer Science & Data Science Student at Cleveland State University</p>
+    <div class="social-links">
+      <a href="https://github.com/joeno05" target="_blank" title="GitHub">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+      </a>
+      <a href="https://linkedin.com/in/joseph-norton-7907421a4" target="_blank" title="LinkedIn">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" />
+      </a>
+      <!-- Add more icons/links as needed -->
+    </div>
+  </div>
+</section>
+<!-- About Section -->
+<section class="about-section">
+  <h2 id="about">About Me</h2>
+  <div class="about-row">
+    <div class="about-icons-text" style="display: flex; flex-direction: column; flex: 1;">
+      <!-- Top horizontal icons with captions -->
+      <div style="display: flex; justify-content: flex-start; gap: 28px; margin-bottom: 18px;">
+        <div class="language-icons" style="display: flex; flex-direction: column; align-items: center;">
+          <img src="images/gradcap.png" alt="Graduation Cap" title="Graduation" style="width:38px; height:38px;">
+          <span style="font-size:0.95em; margin-top:6px; color:#333;">Double Major</span>
+        </div>
+        <div class="language-icons" style="display: flex; flex-direction: column; align-items: center;">
+          <img src="images/trophy.png" alt="Trophy" title="Awards" style="width:38px; height:38px;">
+          <span style="font-size:0.95em; margin-top:6px; color:#333;">Top 500 Rubik's Cube Solver Globally</span>
+        </div>
+        <div class="language-icons" style="display: flex; flex-direction: column; align-items: center;">
+          <img src="images/school.png" alt="School" title="School" style="width:38px; height:38px;">
+          <span style="font-size:0.95em; margin-top:6px; color:#333;">3.81 GPA</span>
+        </div>
+        <div class="language-icons" style="display: flex; flex-direction: column; align-items: center;">
+          <img src="images/clock.png" alt="Clock" title="Expected Graduation" style="width:38px; height:38px;">
+          <span style="font-size:0.95em; margin-top:6px; color:#333;">Expected Graduation Spring 2027</span>
+        </div>
+        <a href="https://github.com/joeno05" target="_blank" title="GitHub">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+        </a>
+        <a href="https://linkedin.com/in/joseph-norton-7907421a4" target="_blank" title="LinkedIn">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" />
+        </a>
+      </div>
+      <!-- About text -->
+      <div class="about-text">
+        <p class="header" style="margin-left: 0; margin-right: 0;">
+          I am a web developer with a passion for creating beautiful and functional websites. I am currently a senior college student at Cleveland State University studying computer science and data science. I expect to graduate in Spring 2026. I am also a competitive Rubik's Cube solver, ranked in the top 500 globally. I have a strong foundation in programming languages such as Python, JavaScript, and C++, and I am always eager to learn new technologies and improve my skills.
+        </p>
+      </div>
+      <!-- Coding Language icons with captions -->
+      <div style="display: flex; justify-content: flex-start; gap: 28px; margin-top: 24px;">
+        <div class="language-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" title="HTML5" style="width:38px; height:38px;">
+          <span style="font-size:0.95em; margin-top:6px; color:#333;">HTML5</span>
+        </div>
+        <div class="language-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" title="CSS3" style="width:38px; height:38px;">
+          <span style="font-size:0.95em; margin-top:6px; color:#333;">CSS3</span>
+        </div>
+        <div class="language-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" style="width:38px; height:38px;">
+          <span style="font-size:0.95em; margin-top:6px; color:#333;">JavaScript</span>
+        </div>
+        <div class="language-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" title="Python" style="width:38px; height:38px;">
+          <span style="font-size:0.95em; margin-top:6px; color:#333;">Python</span>
+        </div>
+        <div class="language-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" title="PHP" style="width:38px; height:38px;">
+          <span style="font-size:0.95em; margin-top:6px; color:#333;">PHP</span>
+        </div>
+        <div class="language-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" title="MySQL" style="width:38px; height:38px;">
+          <span style="font-size:0.95em; margin-top:6px; color:#333;">MySQL</span>
+        </div>
+        <div class="language-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" title="Java" style="width:38px; height:38px;">
+          <span style="font-size:0.95em; margin-top:6px; color:#333;">Java</span>
+        </div>
+        <div class="language-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" title="C" style="width:38px; height:38px;">
+          <span style="font-size:0.95em; margin-top:6px; color:#333;">C</span>
+        </div>
+        <div class="language-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" title="C++" style="width:38px; height:38px;">
+          <span style="font-size:0.95em; margin-top:6px; color:#333;">C++</span>
+        </div>
+        <div class="language-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" title="Linux" style="width:38px; height:38px;">
+          <span style="font-size:0.95em; margin-top:6px; color:#333;">Linux</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <img src="images/portrait.jpeg" style="width: 320px; height: 320px; border-radius: 12px; object-fit: cover; box-shadow: 0 2px 8px rgba(0,0,0,0.08);" alt="Joe Norton">
+    </div>
+  </div>
+</section>
+<!-- Experience Section-->
+<section class="experience-section">
+  <h2 id="experience" style="color: white;">Experience</h2>
+  <p class="header" style="color: white;">I have worked on various projects, including web applications and data analysis tasks. My experience includes internships and personal projects that have helped me develop my skills in programming, data analysis, and web development.</p>
+  <!-- Coding Instuctor at Gilmour Academy-->
+  <div class="experience-row">
+    <img src="images/gilmour.jpeg" alt="Coding Instructor at Gilmour Academy" class="experience-img" style="border: 4px solid #2a8c8a; box-shadow: 0 4px 24px rgba(42,140,138,0.15); height: 380px; width: 440px;">
+    <div class="experience-desc" style="margin-left: 12px;">
+      <h3 style="margin-top:0; color:#202567; font-size:1.35em;">
+        Coding Instructor at Gilmour Academy
+      </h3>
+      <p style="margin: 0 0 10px 0; color:#444; font-style:italic;">
+        Summers 2024 and 2025 &nbsp; | &nbsp; Gates Mills, OH
+      </p>
+      <ul style="padding-left: 20px; margin-bottom: 10px;">
+        <li>Delivered engaging technical instruction for coding classes</li>
+        <li>Guided students through Python, HTML, and JavaScript projects</li>
+        <li>Emphasized debugging, troubleshooting, and creative thinking</li>
+        <li>Managed classroom technology and communications</li>
+        <li>Completed instructor training for course curriculum</li>
+        <li>Developed strong, agile problem-solving skills</li>
+      </ul>
+      <div style="margin-top:12px;">
+        <span style="background:#2a8c8a; color:#fff; border-radius:6px; padding:4px 12px; font-size:0.95em;">
+          Instructor • Technology • Leadership
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- Tutor at Math Learning Center -->
+  <div class="experience-row">
+  <div class="experience-desc" style="margin-left: 12px;">
+    <h3 style="margin-top:0; color:#202567; font-size:1.35em;">
+      Tutor at Math Learning Center
+    </h3>
+    <p style="margin: 0 0 10px 0; color:#444; font-style:italic;">
+      Fall 2025 to Present &nbsp; | &nbsp; Cleveland, OH
+    </p>
+    <ul style="padding-left: 20px; margin-bottom: 10px;">
+      <li>Delivered technical instruction for coding classes</li>
+      <li>Guided students through Python, HTML, and JavaScript projects</li>
+      <li>Emphasized debugging, troubleshooting, and creative thinking</li>
+      <li>Managed classroom technology and communications</li>
+      <li>Completed instructor training for course curriculum</li>
+      <li>Developed strong, agile problem-solving skills</li>
+    </ul>
+    <div style="margin-top:12px;">
+      <span style="background:#2a8c8a; color:#fff; border-radius:6px; padding:4px 12px; font-size:0.95em;">
+        Tutor • Mathematics • Mentorship
+      </span>
+    </div>
+  </div>
+      <img src="images/mlc.png" alt="Tutor at Math Learning Center" class="experience-img" style="border: 4px solid #2a8c8a; box-shadow: 0 4px 24px rgba(42,140,138,0.15);">
+  </div>
+</section>
+<!-- Projects Section -->
+<section class="projects-section">
+  <h2 id="projects">Projects</h2>
+  <p class="header">Check out my projects on GitHub to see some of the work I've done. I enjoy building applications that solve real-world problems and enhance user experiences.</p>
+  <ul id="projects-list">
+  <li>
+    <div class="img-hover-container projects-fade">
+      <a href="https://github.com/joeno05/SportsProject" target="_blank">
+      <img src="images/sports.jpg" alt="Sports Web App">
+      <div class="hover-text"><b>Sports Web App</b><br>
+        A web application that helps users track up-to-date sports scores and other information.
+      </div>
+      </a>
+    </div>
+    <div class="img-hover-container projects-fade">
+      <img src="images/chorehero.png" alt="Chore Web App">
+      <div class="hover-text">
+        <b>Chore Hero</b><br>
+        A full-stack web application that helps users organize and track daily chores using a rewarding points system. Built with HTML, CSS, and JavaScript for a responsive user interface, and powered by PHP and SQL for secure user authentication, data storage, and dynamic updates.
+      </div>
+    </div>
+    <div class="img-hover-container projects-fade">
+      <a href="https://github.com/LewNeko/Data-Mining-Group-Project" target="_blank">
+      <img src="images/yelp.png" alt="Recipe Review Analysis">
+      <div class="hover-text">
+        <b>Recipe Review Rating Categorization Based on Text Analysis</b><br>
+        A data mining project that analyzes recipe reviews to categorize them based on opinion and content. Utilizes Python libraries for natural language processing and machine learning to extract insights from user-generated content.
+      </div>
+      </a>
+    </div>
+    <br>
+  </li>
+  </ul>
+</section>
+<!-- Awards and Scholarships Section -->
+<section class="awards-section">
+  <h2 id="awards">Awards and Scholarships</h2>
+  <p class="header">I have received several awards and scholarships for my academic achievements and contributions to the community. These recognitions motivate me to continue striving for excellence in my studies and projects.</p>
+  <div class="awards-row">
+    <div class="award-icon" style="display: flex; flex-direction: column; align-items: center;">
+      <img src="images/dsawardpaper.jpeg" alt="Data Science Student Achievement Award" title="Data Science Award" style="object-fit:contain; margin-bottom:8px;">
+      <span style="font-size:1em; text-align:center;">Data Science Student Achievement Award</span>
+    </div>
+    <div class="award-icon" style="display: flex; flex-direction: column; align-items: center;">
+      <img src="images/chooseohiofirst.jpg" alt="Choose Ohio First Scholarship" title="Choose Ohio First Scholarship" style="object-fit:contain; margin-bottom:8px;">
+      <span style="font-size:1em; text-align:center;">Choose Ohio First Scholarship</span>
+    </div>
+    <div class="award-icon" style="display: flex; flex-direction: column; align-items: center;">
+      <img src="images/dsawardpaper.jpeg" alt="President's List" title="President's List" style="object-fit:contain; margin-bottom:8px;">
+      <span style="font-size:1em; text-align:center;">President's Scholarship</span>
+    </div>
+    <div class="award-icon" style="display: flex; flex-direction: column; align-items: center;">
+      <img src="images/dsawardpaper.jpeg" alt="President's List" title="President's List" style="object-fit:contain; margin-bottom:8px;">
+      <span style="font-size:1em; text-align:center;">2x President's List</span>
+    </div>
+  </div>
+</section>
+<!-- Contact Form -->
+<section class="contact-section">
+<div class="contact-row">
+  <img src="images/waskewiczsign.jpeg" alt="Contact Me" class="contact-img">
+  <section class="contact fade-in" id="contact" style="margin:0;">
+    <h1 style="text-align: center;">Contact Me</h1>
+    <form action="https://formspree.io/f/xnnzbalj" method="POST" style="flex:1;">
+      <div class="form-row">
+        <div style="flex:1; margin-right:12px;">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" required>
+        </div>
+        <div style="flex:1;">
+          <label for="email">Email</label>
+          <input type="email" name="_replyto" id="email" required>
+        </div>
+      </div>
+      <label for="message">Message</label>
+      <textarea name="message" id="message" rows="6" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 2025 Joe Norton. All rights reserved.</p>
+  <p>Last updated: August 2025</p>
+  <p>Website built with HTML, CSS, and JavaScript.</p>
+</footer>
+</body>
+</html>
