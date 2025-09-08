@@ -4,36 +4,40 @@
   <meta charset=utf-8>
   <title>Joe Norton</title>
   <link rel="stylesheet" href="personalwebsite.css">
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const elements = document.querySelectorAll(
-    '.experience-desc, .experience-img, .projects-img, .projects-fade, .contact'
-  );
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        entry.target.classList.add('fade-in');
-      } else {
-        entry.target.classList.remove('fade-in');
-      }
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const elements = document.querySelectorAll(
+        '.experience-desc, .experience-img, .projects-img, .projects-fade, .contact'
+      );
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+          } else {
+            entry.target.classList.remove('fade-in');
+          }
+        });
+      }, { threshold: 0.2 });
+
+      elements.forEach(el => observer.observe(el));
     });
-  }, { threshold: 0.2 });
+    document.addEventListener("DOMContentLoaded", function() {
+      let slideIndex = 0;
+      const slides = document.querySelectorAll('.slide-img');
+      if (slides.length === 0) return;
+      slides.forEach((img, i) => img.classList.toggle('active', i === 0));
 
-  elements.forEach(el => observer.observe(el));
-});
-document.addEventListener("DOMContentLoaded", function() {
-  let slideIndex = 0;
-  const slides = document.querySelectorAll('.slide-img');
-  if (slides.length === 0) return;
-  slides.forEach((img, i) => img.classList.toggle('active', i === 0));
-
-  setInterval(() => {
-    slides[slideIndex].classList.remove('active');
-    slideIndex = (slideIndex + 1) % slides.length;
-    slides[slideIndex].classList.add('active');
-  }, 4000); // Change image every 4 seconds
-});
-</script>
+      setInterval(() => {
+        slides[slideIndex].classList.remove('active');
+        slideIndex = (slideIndex + 1) % slides.length;
+        slides[slideIndex].classList.add('active');
+      }, 4000); // Change image every 4 seconds
+    });
+  </script>
 </head>
 <body>
 <!-- Navigation Bar -->
