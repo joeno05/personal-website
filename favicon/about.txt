@@ -1,6 +1,6 @@
 This favicon was generated using the following font:
 
-- Font Title: Acme
+- Font Title: National Park
 - Font Author: undefined
-- Font Source: https://fonts.gstatic.com/s/acme/v25/RrQfboBx-C5_bx3Lb23lzLk.ttf
+- Font Source: https://fonts.gstatic.com/s/nationalpark/v3/GftQ7vJOtg4NO-gmoY4nmcqP-VY9vs1ixcqgHfJ_b5XMdoayNUNf.ttf
 - Font License: undefined)
