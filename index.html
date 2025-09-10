@@ -1,49 +1,73 @@
 <!doctype html>
 <html lang=en>
 <head>
-  <meta charset=utf-8>
-  <title>Joe Norton</title>
-  <link rel="stylesheet" href="personalwebsite.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const elements = document.querySelectorAll(
-        '.experience-desc, .experience-img, .projects-img, .projects-fade, .contact'
-      );
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-          } else {
-            entry.target.classList.remove('fade-in');
-          }
-        });
-      }, { threshold: 0.2 });
+<meta charset=utf-8>
+<title>Joe Norton</title>
+<link rel="stylesheet" href="personalwebsite.css">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const elements = document.querySelectorAll(
+      '.experience-desc, .experience-img, .projects-img, .projects-fade, .contact'
+    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        } else {
+          entry.target.classList.remove('fade-in');
+        }
+      });
+    }, { threshold: 0.2 });
 
-      elements.forEach(el => observer.observe(el));
-    });
-    document.addEventListener("DOMContentLoaded", function() {
-      let slideIndex = 0;
-      const slides = document.querySelectorAll('.slide-img');
-      if (slides.length === 0) return;
-      slides.forEach((img, i) => img.classList.toggle('active', i === 0));
+    elements.forEach(el => observer.observe(el));
+  });
+  document.addEventListener("DOMContentLoaded", function() {
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide-img');
+    if (slides.length === 0) return;
+    slides.forEach((img, i) => img.classList.toggle('active', i === 0));
 
-      setInterval(() => {
-        slides[slideIndex].classList.remove('active');
-        slideIndex = (slideIndex + 1) % slides.length;
-        slides[slideIndex].classList.add('active');
-      }, 4000); // Change image every 4 seconds
+    setInterval(() => {
+      slides[slideIndex].classList.remove('active');
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add('active');
+    }, 4000); // Change image every 4 seconds
+  });
+  // Mobile menu toggle function
+  function toggleMenu() {
+    const menuBar = document.getElementById('menuBar');
+    const hamburger = document.querySelector('.hamburger-menu');
+    menuBar.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  }
+  // Close menu when clicking on a link
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuLinks = document.querySelectorAll('.menu-bar a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const menuBar = document.getElementById('menuBar');
+        const hamburger = document.querySelector('.hamburger-menu');
+        menuBar.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
     });
-  </script>
+  });
+</script>
 </head>
 <body>
 <!-- Navigation Bar -->
 <nav class="home-nav">
 <div class="nav-title"><a href="#home">Joe Norton</a></div>
-<ul class="menu-bar">
+<div class="hamburger-menu" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<ul class="menu-bar" id="menuBar">
   <li><a href="#home">Home</a></li>
   <li><a href="#about">About Me</a></li>
   <li><a href="#experience">Experience</a></li>
@@ -72,7 +96,6 @@
       <a href="https://linkedin.com/in/joseph-norton-7907421a4" target="_blank" title="LinkedIn">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" />
       </a>
-      <!-- Add more icons/links as needed -->
     </div>
   </div>
 </section>
@@ -81,7 +104,6 @@
   <h2 id="about">About Me</h2>
   <div class="about-row">
     <div class="about-icons-text" style="display: flex; flex-direction: column; flex: 1;">
-      <!-- Top horizontal icons with captions -->
       <div style="display: flex; justify-content: flex-start; gap: 28px; margin-bottom: 18px;">
         <div class="language-icons" style="display: flex; flex-direction: column; align-items: center;">
           <img src="images/gradcap.png" alt="Graduation Cap" title="Graduation" style="width:38px; height:38px;">
@@ -177,7 +199,7 @@
   <!-- Coding Instuctor at Gilmour Academy-->
   <div class="experience-row">
     <img src="images/gilmour.jpeg" alt="Coding Instructor at Gilmour Academy" class="experience-img" style="border: 4px solid #2a8c8a; box-shadow: 0 4px 24px rgba(42,140,138,0.15); height: 380px; width: 440px;">
-    <div class="experience-desc" style="margin-left: 12px;">
+    <div class="experience-desc" style="margin-left: 12px; margin-right: 12px;">
       <h3 style="margin-top:0; color:#202567; font-size:1.35em;">
         Coding Instructor at Gilmour Academy
       </h3>
@@ -201,7 +223,7 @@
   </div>
   <!-- Tutor at Math Learning Center -->
   <div class="experience-row">
-  <div class="experience-desc" style="margin-left: 12px;">
+  <div class="experience-desc" style="margin-left: 12px; margin-right: 12px;">
     <h3 style="margin-top:0; color:#202567; font-size:1.35em;">
       Tutor at Math Learning Center
     </h3>
