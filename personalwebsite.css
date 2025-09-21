@@ -204,14 +204,14 @@ body {
   justify-content: center;
   gap: 32px;
   margin-bottom: 32px;
-  max-height: 400px;
+  max-height: 380px;
   background: #003366; /* dark blue */
   border-radius: 12px;
   flex-wrap: wrap;
 }
 
 .experience-img {
-  width: 320px;
+  width: 400px;
   height: 100%;
   display: block;
   object-fit: cover;
@@ -223,7 +223,7 @@ body {
 
 .experience-desc {
   min-width: 0;
-  width: 600px; /* Fixed width instead of flex: 1 */
+  width: 600px;
   max-width: 600px;
   height: 100%;
   background: #fff; 
